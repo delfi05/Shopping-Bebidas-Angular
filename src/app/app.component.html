@@ -1,4 +1,39 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!--esqueleto de la app-->
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">{{title}}</a>
+        </li>
+      </ul>
+      <a class="navbar-brand" [routerLink]="['/']">Inicio</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">Productos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">Carrito</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['contact']">Contactos</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<footer>{{title}} 2022</footer>
