@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { shopping } from '../shopping-list/shoppinglist';
 
+/*maneja la logica del carrito*/
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -10,13 +11,14 @@ import { shopping } from '../shopping-list/shoppinglist';
 })
 export class ShoppingCartComponent implements OnInit {
 
-    cartList$: Observable<shopping[]>;
+  cartList$: Observable<shopping[]>;
   constructor(private cart: ShoppingCartService) { 
-    //cart.cartList.subscribe((c)=> this.cartList = c); 
     this.cartList$ = cart.cartList.asObservable();
   }
 
   ngOnInit(): void {
   }
-
+  
+  deleteShopp(shopping:shopping):void{
+  }
 }

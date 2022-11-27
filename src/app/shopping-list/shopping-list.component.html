@@ -20,7 +20,7 @@
             <td> <span class="badge text-bg-light" *ngIf="shopping.stock==0">Sin stock</span></td>
             <td>
                 <app-input-integer [cantidad]="shopping.cantidad" [max]="shopping.stock" *ngIf="shopping.stock" (maxReached)="maxReached($event)"></app-input-integer>
-                <button class="button" (click)= "addToCart(shopping)">Comprar</button>
+                <button class="button" (click)= "addToCart(shopping)" *ngIf="shopping.stock!=0">Comprar</button>
             </td>
         </tr>
         

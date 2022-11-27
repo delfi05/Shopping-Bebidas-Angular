@@ -1,6 +1,18 @@
 <h1>Carrito de compras</h1>
-<ul>
-    <li *ngFor="let shopping of (cartList$ | async)">
-        {{shopping.tipo}} : {{shopping.cantidad}}
-    </li>
-</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Cantidad</td>
+            <td>Precio</td>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let shopping of (cartList$ | async)">
+                <td>{{shopping.bebidaAlcoholica}}</td>
+                <td>{{shopping.cantidad}}</td>
+                <td>{{shopping.precio | currency}}</td>
+                <td><button (click)="deleteShopp(shopping)">Eliminar</button></td>
+            </tr>
+    </tbody>
+</table>

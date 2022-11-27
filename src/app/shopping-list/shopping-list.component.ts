@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shopping-cart.service';
+import { ShoppingDataService } from '../shopping-data.service';
 import { shopping } from './shoppinglist';
+
 
 @Component({
   selector: 'app-shopping-list',
@@ -15,16 +17,18 @@ shoppings: shopping[]= [];
 //servicio inyectado de angular 
   constructor(
     private cart: ShoppingCartService,
-    private shopping: ShoppingCartService) {
-   }
+    private shoppingDataService: ShoppingDataService){
+    }
 
   ngOnInit(): void {
+    this.shoppingDataService.getAll()
+    .subscribe(shoppings => this.shoppings = shoppings);
   }
 
-  addToCart(shopping: shopping):void{
-    this.cart.addToCart(shopping);
-    shopping.stock -= shopping.cantidad;
-    shopping.cantidad = 0; 
+  addToCart(shoppings: shopping):void{
+    this.cart.addToCart(shoppings);
+    shoppings.stock -= shoppings.cantidad;
+    shoppings.cantidad = 0; 
   }
   
   maxReached(m: string){
