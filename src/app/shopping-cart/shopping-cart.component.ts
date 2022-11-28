@@ -12,13 +12,15 @@ import { shopping } from '../shopping-list/shoppinglist';
 export class ShoppingCartComponent implements OnInit {
 
   cartList$: Observable<shopping[]>;
+
   constructor(private cart: ShoppingCartService) { 
-    this.cartList$ = cart.cartList.asObservable();
+    this.cartList$ = this.cart.cartList.asObservable();
   }
 
   ngOnInit(): void {
   }
   
-  deleteShopp(shopping:shopping):void{
+  deleteShopp(i: any):void{
+    this.cart.deleteShopp(i);
   }
 }

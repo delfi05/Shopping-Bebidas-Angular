@@ -8,11 +8,11 @@
         </tr>
     </thead>
     <tbody>
-            <tr *ngFor="let shopping of (cartList$ | async)">
-                <td>{{shopping.bebidaAlcoholica}}</td>
-                <td>{{shopping.cantidad}}</td>
-                <td>{{shopping.precio | currency}}</td>
-                <td><button (click)="deleteShopp(shopping)">Eliminar</button></td>
-            </tr>
+        <tr *ngFor="let shopping of (cartList$ | async);let i=index">
+            <td>{{shopping.bebidaAlcoholica}}</td>
+            <td>{{shopping.cantidad}}</td>
+            <td>{{shopping.precio | currency}}</td>
+            <td><button class="btn btn-danger" (click)="deleteShopp(i)">Eliminar</button></td>
+        </tr>
     </tbody>
 </table>

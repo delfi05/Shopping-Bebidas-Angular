@@ -24,7 +24,17 @@ export class ShoppingCartService {
     //dice q actualice el valor
     this.cartList.next(this._cartList);
   }
-  deleteShopp(shopping:shopping):void{
-    
+  deleteShopp(i: any):void{
+    //console.log(this._cartList);
+    this._cartList.splice(i,1);
+    //console.log(product);
+    /*for(let y=0; y<this._cartList.length;y++){
+      if(this._cartList[y].id==product.id){
+        console.log("llegue");
+        this._cartList[y].stock==this._cartList[y].stock+product.cantidad;
+        return
+      }
+    }
+    */
   }
  }

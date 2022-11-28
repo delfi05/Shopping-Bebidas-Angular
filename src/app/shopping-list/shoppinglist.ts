@@ -6,4 +6,5 @@ export interface shopping {
     'imagen':string;
     'liquidacion': boolean;
     'cantidad':number;
+    'id':string;
 }
