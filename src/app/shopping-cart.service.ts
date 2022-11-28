@@ -25,8 +25,8 @@ export class ShoppingCartService {
     this.cartList.next(this._cartList);
   }
   deleteShopp(i: any):void{
-    //console.log(this._cartList);
-    this._cartList.splice(i,1);
+    
+    this._cartList.splice(i);
     //console.log(product);
     /*for(let y=0; y<this._cartList.length;y++){
       if(this._cartList[y].id==product.id){

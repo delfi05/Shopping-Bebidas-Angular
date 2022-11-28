@@ -20,7 +20,9 @@ export class ShoppingDataService {
         tap((bebidadaAlcoholicas: shopping[]) => bebidadaAlcoholicas.forEach(shoppings => shoppings.cantidad = 0))
       );  
   }
+  
   deleteShopp(id:string){
     return this.http.get<shopping['id']>(URL);
   }
+  
 }
