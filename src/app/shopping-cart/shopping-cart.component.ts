@@ -21,8 +21,6 @@ export class ShoppingCartComponent implements OnInit {
   }
   
   deleteShopp(shopping: shopping):void{
-   console.log(shopping);
-   this.cart.deleteShopp(shopping.id);
-   console.log(shopping);
+   this.cart.deleteShopp(shopping);
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { shopping } from './shopping-list/shoppinglist';
 
@@ -10,8 +10,10 @@ import { shopping } from './shopping-list/shoppinglist';
 export class ShoppingCartService {
 
  private _cartList: shopping [] = [];
- cartList: BehaviorSubject<shopping[]>= new BehaviorSubject(this._cartList);
+ cartList: BehaviorSubject<shopping[]>= new BehaviorSubject<shopping[]>([]);
  
+ @Output() shopping: EventEmitter<shopping> = new EventEmitter();
+
   addToCart(shoppings: shopping) {   
     let item: shopping = this._cartList.find((v1) => v1.tipo == shoppings.tipo)!;
     if (!item){
@@ -19,22 +21,13 @@ export class ShoppingCartService {
     }else{
       item.cantidad += shoppings.cantidad;
     }
-    console.log(this._cartList);
     //next muestra cual es el siguiente valor, muestra la variable privada
     //dice q actualice el valor
     this.cartList.next(this._cartList);
   }
-  deleteShopp(i: any):void{
-    
-    this._cartList.splice(i);
-    //console.log(product);
-    /*for(let y=0; y<this._cartList.length;y++){
-      if(this._cartList[y].id==product.id){
-        console.log("llegue");
-        this._cartList[y].stock==this._cartList[y].stock+product.cantidad;
-        return
-      }
-    }
-    */
+
+  deleteShopp(shopping: any):void{
+    this._cartList.splice(shopping);
+    this.shopping.emit(shopping);
   }
  }

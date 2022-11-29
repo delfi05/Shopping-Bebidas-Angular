@@ -21,8 +21,8 @@ export class ShoppingDataService {
       );  
   }
   
-  deleteShopp(id:string){
-    return this.http.get<shopping['id']>(URL);
+  getBebidaById(id:string){
+    return this.http.get<shopping>(`${URL}/${id}`);
   }
   
 }
