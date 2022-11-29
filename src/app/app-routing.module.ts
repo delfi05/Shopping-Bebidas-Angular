@@ -2,21 +2,30 @@ import { ShoppingAlcoholicComponent } from './shopping-alcoholic/shopping-alcoho
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 import { ShoppingContactComponent } from './shopping-contact/shopping-contact.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
     //cuando no hay nada q se redirija 
     path:"",
-    redirectTo: "shoppings",
+    redirectTo: "/",
     pathMatch: "full"
   },
   {
-    path: "shoppings",
+    path: "Shopping y Carrito",
     component: ShoppingAlcoholicComponent
   },
-
   {
-  path: "contact",
+    path: "productos",
+    component: ShoppingListComponent
+  },
+  {
+    path: "carrito",
+    component: ShoppingCartComponent
+  },
+  {
+  path: "contacto",
   component: ShoppingContactComponent
   }
 ];
