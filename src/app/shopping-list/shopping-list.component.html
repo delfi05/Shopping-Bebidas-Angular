@@ -13,7 +13,11 @@
     </thead>
     <tbody>
         <tr *ngFor= "let shopping of shoppings" [ngClass]="{'liquidacion':shopping.liquidacion}">
-            <td><img class="my-4" width="100" [src]="shopping.imagen" [alt]="shopping.imagen"></td>
+            <td>
+                <span *ngIf="shopping.liquidacion">Liquidandose</span>
+                <br>
+                <img class="my-4" width="100" [src]="shopping.imagen" [alt]="shopping.imagen">
+            </td>
             <td>{{shopping.bebidaAlcoholica}}</td>
             <td>{{shopping.tipo}}</td>
             <td>{{shopping.precio | currency}}</td> <!--pipes para poner signo $-->

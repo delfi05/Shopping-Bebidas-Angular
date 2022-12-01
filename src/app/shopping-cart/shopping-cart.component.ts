@@ -13,6 +13,7 @@ export class ShoppingCartComponent implements OnInit {
 
   cartList$: Observable<shopping[]>;
 
+
   constructor(private cart: ShoppingCartService) { 
     this.cartList$ = this.cart.cartList.asObservable();
   }

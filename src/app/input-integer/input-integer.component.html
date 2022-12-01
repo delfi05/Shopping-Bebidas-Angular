@@ -1,13 +1,13 @@
-<div class="input-group">
-    <div class="input-group">
-        <div class="input-group-prepend">
+<div class="input-group box">
+    
+        <div class="card-text badge">
             <button class="btn btn-danger" (click)="downCantidad()">-</button>
         </div>
         <br>   
         <input type="text" [(ngModel)]="cantidad" (keyUp)="changeQuantity($event)">
         <br>
-        <div class="input-group-append">    
+        <div class="card-text badge">    
             <button class="btn btn-danger" (click)="upCantidad()">+</button>
         </div>
+    
     </div>
-</div>
