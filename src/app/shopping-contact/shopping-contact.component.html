@@ -1,7 +1,8 @@
-<div>
+<div class="alinear">
     <br>
     <br>
     <form [formGroup]="form" (ngSubmit)="enviar($event)"> 
+        <br>
         <h2 class="consultas">Contactanos</h2>
         <input class= "controles" type="text" placeholder="Nombre y Apellido" formControlName="nombre">
         <input class= "controles" type="text" placeholder="nombre@ejemplo.com" formControlName="email">
@@ -13,5 +14,6 @@
         </div>
         <button [disabled]="form.invalid" (click)="showMsg()" class="button" type="submit">Enviar</button>
         <div><p *ngIf="form.invalid && !mensaje">Todos los campos tienen que estar completos</p></div>
+        <br>
     </form>
 </div>
