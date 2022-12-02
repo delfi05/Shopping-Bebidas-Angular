@@ -12,9 +12,15 @@
             <td>{{shopping.bebidaAlcoholica}}</td>
             <td>{{shopping.cantidad}}</td>
             <td>{{shopping.precio | currency}}</td>
-            <td><button class="btn btn-danger" (click)="deleteShopp(shopping)">Eliminar</button></td>
+            <td><button class="btn btn-danger" (click)="deleteShopp(shopping.id, shopping)">Eliminar</button></td>
+        </tr>
+        <tr *ngIf="total()!=0">
+            <td>TOTAL:</td>
+            <td></td>
+            <td>{{total() | currency}}.-</td>
+            <td></td>
         </tr>
         <br>
-        <button class="btn btn-danger">Finalizar compra</button>
+        <button class="btn btn-danger" (click)="finalizarCompra()">Finalizar compra</button>
     </tbody>
 </table>

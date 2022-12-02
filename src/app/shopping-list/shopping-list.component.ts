@@ -13,6 +13,7 @@ import { shopping } from './shoppinglist';
 export class ShoppingListComponent implements OnInit {
 
 shoppings: shopping[]= [];
+cartList: shopping[] = [];
 
 //servicio inyectado de angular 
   constructor(
@@ -21,8 +22,16 @@ shoppings: shopping[]= [];
     }
 
   ngOnInit(): void {
+    this.cartList = this.cart.getCart();
+
     this.shoppingDataService.getAll()
-    .subscribe(shoppings => this.shoppings = shoppings);
+    .subscribe(shoppings => { this.shoppings = shoppings;
+
+      for (let i = 0; i < this.shoppings.length; i++) {
+        let quantity = this.quantityProductsInCart(this.shoppings[i]);
+        this.shoppings[i].stock = this.shoppings[i].stock - quantity;
+      }
+    });
     this.cart.shopping.subscribe(resp => { 
       this.removeToCart(resp);
     })
@@ -41,5 +50,13 @@ shoppings: shopping[]= [];
 
   maxReached(m: string){
     alert(m);
+  }
+  quantityProductsInCart(shopping: shopping): number{
+    for (let i = 0; i < this.cartList.length; i++) {
+      if(shopping.tipo == this.cartList[i].tipo){
+        return this.cartList[i].cantidad;
+      }
+    }
+    return 0;
   }
 }

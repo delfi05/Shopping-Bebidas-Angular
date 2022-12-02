@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingContactComponent } from './shopping-contact/shopping-contact.component';
 import { ShoppingAlcoholicComponent } from './shopping-alcoholic/shopping-alcoholic.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

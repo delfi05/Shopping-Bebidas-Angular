@@ -20,8 +20,16 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  total() {
+    return this.cart.total();
+  }
   
-  deleteShopp(shopping: shopping):void{
-   this.cart.deleteShopp(shopping);
+  finalizarCompra(){
+    return this.cart.finalizar();
+  }
+  
+  deleteShopp(id: any, shopping: any):void{
+   this.cart.deleteShopp(id, shopping);
   }
 }

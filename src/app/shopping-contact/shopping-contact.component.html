@@ -1,13 +1,17 @@
 <div>
     <br>
     <br>
-    <form> 
+    <form [formGroup]="form" (ngSubmit)="enviar($event)"> 
         <h2 class="consultas">Contactanos</h2>
-        <input class= "controles" type="text" name="nombre" placeholder="Nombre y Apellido">
-        <input class= "controles" type="text" name="email" placeholder="Email">
-        <textarea class= "controles" type="text" name="mensaje" placeholder="Escribe un mensaje"></textarea>
-        <br>        
-        <button class="button" type="submit">Enviar</button>
-    
+        <input class= "controles" type="text" placeholder="Nombre y Apellido" formControlName="nombre">
+        <input class= "controles" type="text" placeholder="nombre@ejemplo.com" formControlName="email">
+        <textarea class= "controles" type="text" placeholder="Escribe un mensaje" formControlName="mensaje"></textarea>
+        <br>
+        <div>
+            <p *ngIf="mensaje">Los datos se enviaron correctamente</p> 
+            <p *ngIf="error">Los datos no pudieron enviarse, aguarde unos segundos e intente nuevamente </p>
+        </div>
+        <button [disabled]="form.invalid" (click)="showMsg()" class="button" type="submit">Enviar</button>
+        <div><p *ngIf="form.invalid && !mensaje">Todos los campos tienen que estar completos</p></div>
     </form>
 </div>
